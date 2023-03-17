@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src= 
+
+  "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+  
+      </script>
+    
+</head>
+<style>
+
+.con{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-gap: 30px;
+      row-gap: 40px;
+  
+      
+    }
+    img{
+      width: 200px;
+      height: 200px;
+      
+    }
+    .view{
+      position:sticky;
+        top:0px;
+    right: 0;
+    margin-left: 950px;
+    }
+   #gfg{
+   background-color: aqua;
+   }
+   .search{
+    position:sticky;
+    top: 0;
+    
+   }
+   @media (max-width:1000px) {
+        
+        img{
+      height: 200px;
+      width: 200px;
+    }
+    td,tr{
+      width: 200px;
+    }
+   
+    .searchbox{
+      position: sticky;
+      top: 0;
+      
+    }
+    .view{
+      position:sticky;
+        top:0px;
+      margin-left:650x;
+    
+    }
+      }
+     
+
+</style>
+<body>
+  
+  <div class="view">
+    <a href="grid.html" >Gridview</a>
+    <a href="index.html" >Tableview</a>
+    </div>
+    
+      <input type="text" class="search" id="gfg" placeholder="search...">
+    
+
+
+  <div class="con" id="content"></div>
+  
+<script>
+fetch('pro1.json')
+  .then(response => response.json())
+  .then(data => {
+    const content = document.getElementById('content');
+    data.forEach(item => {
+      const element = document.createElement('div');
+      element.innerHTML =  `<div class="border"><img src="${item.image}"><br>${item.name}<br>${item.description}</div>`;
+      content.appendChild(element);
+    });
+
+
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        fetch('pro2.json')
+          .then(response => response.json())
+          .then(data => {
+            data.forEach(item => {
+              const element = document.createElement('div');
+              element.innerHTML=`<div><img src="${item.image}"><br>${item.name}"<br>${item.description}</div>`;
+              content.appendChild(element);
+            });
+          });
+      }
+    });
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        fetch('pro3.json')
+          .then(response => response.json())
+          .then(data => {
+            data.forEach(item => {
+              const element = document.createElement('div');
+              element.innerHTML=`<div><img src="${item.image}"><br>${item.name}"<br>${item.description}</div>`;
+              content.appendChild(element);
+            });
+          });
+      }
+    });
+  });
+  $(document).ready(function() { 
+
+$("#gfg").on("keyup", function() { 
+  var value = $(this).val().toLowerCase(); 
+  $("#content div").filter(function() { 
+    $(this).toggle($(this).text() 
+    .toLowerCase().indexOf(value) > -1) 
+
+  }); 
+
+}); 
+
+});
+
+</script>
+</body>
+</html>

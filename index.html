@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src= 
+
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+    
+        </script>
+      
+</head>
+<style>
+   img{
+      height: 200px;
+      width: 400px;
+    }
+    td,tr,thead{
+      width: 400px;
+    }
+    
+    .view{
+      position:sticky;
+        top:0px;
+    right: 0;
+    margin-left: 950px;
+    
+    }    
+    .searchbox{
+      position: sticky;
+      top: 0;
+      
+    }
+    #tablehead{
+      position: sticky;
+      top: 20px;
+      
+      background-color: lightblue;
+    }
+    table,th,td{
+      
+      border: 1px solid blue;
+    
+    }
+    #search{
+      background-color: lightblue;
+    }
+    @media (max-width:1000px) {
+        
+        img{
+      height: 100px;
+      width: 200px;
+    }
+    td,tr{
+      width: 200px;
+    }
+    thead{
+      position: sticky;
+      top: 40px;
+      
+      background-color: lightblue;
+    }
+    .searchbox{
+      position: sticky;
+      top: 0;
+      
+    }
+    .view{
+      position:sticky;
+        top:0px;
+      margin-left: 400px;
+    
+    }
+      }
+      @media (max-width:500px){
+        .view{
+      position:sticky;
+        top:0px;
+      margin-left: 200px;
+    
+    }
+  }
+    
+    
+</style>
+<body>
+
+    
+  <div class="view">
+  <a href="grid.html" >Gridview</a>
+  <a href="index.html" >Tableview</a>
+  </div>
+ 
+    <input type="text" class="searchbox" id="search" placeholder="search...">
+  </div>
+
+      <div id="table-container">
+        <table>
+          <thead id="tablehead">
+            <tr>
+              <th>image</th>
+              <th>Name</th>
+              <th>description</th>
+            </tr>
+          </thead>
+          <tbody id="table-data">
+            <tr>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+   
+    
+      <script src="table.js"></script>
+</body>
+</html>
